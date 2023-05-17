@@ -1,37 +1,35 @@
-__author__ = 'DIANA'
 
+
+import console_messages
 from coord_checks import check_is_in_normal_range, check_if_cell_is_empty
 
-def make_empty_coord_dict():
-    coord_dict = {"symbol": "Empty", "horizontal": 0, "vertical": 0}
-    return coord_dict
 
-
-def take_one_coord_from_user(coord_name):
-    coord = int(input("\nenter "+ coord_name + ": "))
+def take_one_coord_from_user(coord_name: str) -> int|str:
+    try:
+        coord = int(input("\nenter "+ coord_name + ": "))
+    except ValueError:
+        coord = 10
     return coord
 
 
-def ask_coord_for_user(user_r):
-    user_coord_dict = make_empty_coord_dict()
-    user_coord_dict["symbol"] = user_r
-    user_coord_dict["horizontal"] = take_one_coord_from_user("horizontal")
-    user_coord_dict["vertical"] = take_one_coord_from_user("vertical")
-    return user_coord_dict
+def ask_coord_for_user()->tuple:
+    x = take_one_coord_from_user("horizontal")
+    y = take_one_coord_from_user("vertical")
+    return (x,y)
 
 
 
-def make_coord_for_user(user_role, game_board_list):
+def ask_and_make_coord_for_user(game_board_list: list) -> tuple:
     while True:
-        user_coord_dict = ask_coord_for_user(user_role)
-        if (check_is_in_normal_range(user_coord_dict)):
-            if check_if_cell_is_empty(game_board_list, user_coord_dict):
-                return user_coord_dict
+        user_coord_tuple = ask_coord_for_user()
+        if (check_is_in_normal_range(user_coord_tuple)):
+            if check_if_cell_is_empty(game_board_list, user_coord_tuple):
+                return user_coord_tuple
             else:
-                print("Клетка занята!")
+                print(console_messages.CELL_IS_OCCUPIED)
         else:
-            print("Вы вышли за диапазон!")
+            print(console_messages.OUT_OF_RANGE)
 
 
-def show_player_coord_dict(player_coord_dict):
-    print(player_coord_dict["symbol"], " ( ", player_coord_dict["horizontal"], ", ", player_coord_dict["vertical"], ")")
+def show_player_coord_tuple(player_coord_tuple: tuple, player_role: str) -> None:
+    print("\n" + player_role, " ( ", player_coord_tuple[0], ", ", player_coord_tuple[1], ")")

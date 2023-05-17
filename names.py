@@ -1,6 +1,7 @@
-__author__ = 'DIANA'
 
 NAME_CROSSES = "Crosses"
 NAME_NAUGHTS = "Naughts"
-NAME_EMPTY   = "__EMPTY_"
+NAME_EMPTY   = None
 
+USERS_STEP = " USER "
+PROGRAMS_STEP = "  PROGRAM "

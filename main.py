@@ -1,54 +1,53 @@
-
-
 import console_messages
 import names
-import random
 
-from game_board import fill_cell_in_game_board, show_game_board, make_game_board
+from game_board import fill_cell_in_game_board, show_game_board, make_game_board, game_board_is_full
 from program_coordinates import make_coord_for_program
-from user_coordinates import make_coord_for_user, show_player_coord_dict
-from victory import check_victory
+from roles import make_random_choice_of_roles, swich_player_for_next_step, decide_who_makes_next_step
+from user_coordinates import ask_and_make_coord_for_user, show_player_coord_tuple
+from victory import check_is_victory
 
 
-def make_user_and_program_roles():
-    roles = [names.NAME_NAUGHTS, names.NAME_CROSSES]
-    user_r, program_r = random.sample(roles, 2)
-    return user_r, program_r
+
 
 
 if __name__ == "__main__":
     print(console_messages.HELLO_MESSAGE)
 
     game_board_list = make_game_board()
+    user_role, program_role = make_random_choice_of_roles()
 
-# рандомно определяем, кто за крестики, кто за нолики
-    user_role, program_role = make_user_and_program_roles()
+    print(console_messages.USER_ROLE, user_role)
+    print(console_messages.PROGRAM_ROLE, program_role)
 
-    print("user_role    = ", user_role)
-    print("program_role = ", program_role)
+    who_makes_next_step = decide_who_makes_next_step(user_role)
 
-    for count in range(4):
-        user_coord_dict = make_coord_for_user(user_role, game_board_list)
-        show_player_coord_dict(user_coord_dict)
+    result_draw = False
 
-        game_board_list = fill_cell_in_game_board(game_board_list, user_coord_dict)
-
-        if (check_victory(game_board_list)):
-            print("Победа!:")
-            break
-
+    while not (check_is_victory(game_board_list)==True):
+        if (who_makes_next_step == names.USERS_STEP):
+            user_coord_tuple = ask_and_make_coord_for_user(game_board_list)
+            show_player_coord_tuple(user_coord_tuple, user_role)
+            game_board_list = fill_cell_in_game_board(game_board_list, user_coord_tuple, user_role)
+        else:
+            program_coord_tuple = make_coord_for_program(game_board_list)
+            if not program_coord_tuple:
+                print(console_messages.ALL_CELLS_OCCUPIED)
+                print(console_messages.DRAW)
+                result_draw = True
+                break
+            show_player_coord_tuple(program_coord_tuple, program_role)
+            game_board_list = fill_cell_in_game_board(game_board_list, program_coord_tuple, program_role)
         show_game_board(game_board_list)
-
-        program_coord_dict = make_coord_for_program(program_role, game_board_list)
-        show_player_coord_dict(program_coord_dict)
-
-        game_board_list = fill_cell_in_game_board(game_board_list, program_coord_dict)
-
-        if (check_victory(game_board_list)):
-            print("Победа!:")
+        if game_board_is_full(game_board_list):
+            print(console_messages.DRAW)
+            result_draw = True
             break
-
-        show_game_board(game_board_list)
+        winner = who_makes_next_step
+        who_makes_next_step = swich_player_for_next_step(who_makes_next_step)
+        
+    if not result_draw:
+        print(console_messages.VICTORY, ": ", winner)
 
 
 
