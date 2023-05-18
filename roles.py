@@ -2,7 +2,7 @@
 import random
 import constants
 
-def make_random_choice_of_roles() -> str:
+def make_random_choice_of_roles() -> tuple[str, str]:
     roles = [constants.NAME_NAUGHTS, constants.NAME_CROSSES]
     user_role, program_role = random.sample(roles, 2)
     return user_role, program_role

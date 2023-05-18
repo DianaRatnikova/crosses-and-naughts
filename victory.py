@@ -1,12 +1,12 @@
 import constants
 
 
-def check_if_list_of_equal_elements(list_to_check: list) -> bool:
+def check_if_list_of_equal_elements(list_to_check: list[str|None]) -> bool:
     set_from_list = set(list_to_check)
     return len(set_from_list) == 1
 
 
-def check_horizontal_match(game_board_list: list) -> bool:
+def check_horizontal_match(game_board_list: list[list[str|None]]) -> bool:
     for row in game_board_list:
         if row[0] == constants.NAME_EMPTY:
             break
@@ -15,7 +15,7 @@ def check_horizontal_match(game_board_list: list) -> bool:
     return False
 
 
-def check_vertical_match(game_board_list: list) -> bool:
+def check_vertical_match(game_board_list: list[list[str|None]]) -> bool:
     for column_num in range(3):
         column = [row[column_num] for row in game_board_list]
         if column[0]== constants.NAME_EMPTY:
@@ -25,7 +25,7 @@ def check_vertical_match(game_board_list: list) -> bool:
     return False
 
 
-def check_main_diagonal_match(game_board_list: list) -> bool:
+def check_main_diagonal_match(game_board_list: list[list[str|None]]) -> bool:
     for i in range(0,2):
         if game_board_list[i][i] ==  constants.NAME_EMPTY:
             return False
@@ -34,7 +34,7 @@ def check_main_diagonal_match(game_board_list: list) -> bool:
     return True
 
 
-def check_side_diagonal_match(game_board_list: list) -> bool:
+def check_side_diagonal_match(game_board_list: list[list[str|None]]) -> bool:
     for i in range(0,2):
         if game_board_list[i][2-i] ==  constants.NAME_EMPTY:
             return False
@@ -43,7 +43,7 @@ def check_side_diagonal_match(game_board_list: list) -> bool:
     return True
 
 
-def check_is_victory(game_board_list: list)->bool:
+def check_is_victory(game_board_list: list[list[str|None]]) -> bool:
     victory_horizontal = check_horizontal_match(game_board_list)
     victory_vertical = check_vertical_match(game_board_list)
     victory_main_diagonal = check_main_diagonal_match(game_board_list)

@@ -9,13 +9,13 @@ def take_one_coord_from_program() -> int:
     return coord
 
 
-def take_coord_for_program() -> tuple:
+def take_coord_for_program() -> tuple[int,int]:
     x = take_one_coord_from_program()
     y = take_one_coord_from_program()
     return x, y
 
 
-def make_coord_for_program(game_board_list: list): #-> tuple|None:
+def make_coord_for_program(game_board_list: list[list[str|None]]) -> tuple[int, int]|None:
     total_number_of_cells = 9
     for _ in range(1, total_number_of_cells):
         program_coord_tuple = take_coord_for_program()
