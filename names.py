@@ -1,7 +1,0 @@
-
-NAME_CROSSES = "Crosses"
-NAME_NAUGHTS = "Naughts"
-NAME_EMPTY   = None
-
-USERS_STEP = " USER "
-PROGRAMS_STEP = "  PROGRAM "

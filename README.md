@@ -24,3 +24,26 @@ total_number_of_cells = 9 - общее количество клеток на п
 8. Добавила функции на определение победы в модуле victory
 9. Изменила логику проведния игры в цикле
 10. Добавила аннотацию типов
+
+
+Изменения 18/05/2023
+1. форматирование кода сломалось - починю
+2. добавила в gotignore .idea
+3. В main.py теперь
+ while not (check_is_victory(game_board_list)) вместо  while not (check_is_victory(game_board_list) == True)
+4. Убрала повтор в ветках if
+    #    show_player_coord_tuple(current_coord_tuple, current_role)
+    #    game_board_list = fill_cell_in_game_board(game_board_list, current_coord_tuple, current_role)
+
+5. Убрала дубликат обработки ничьей из главного цикла:
+    #    if not current_coord_tuple:
+    #        print(console_messages.ALL_CELLS_OCCUPIED)
+    #        print(console_messages.DRAW)
+    #        result_draw = True
+    #        break
+6. Аннотация типов: как указать список списков???
+7. Убрала транслит :)
+8. names.py и console_messages.py объединила в constants.py
+9.     for i in range(1, total_number_of_cells): заменила на     for _ in range(1, total_number_of_cells):
+Тк к не использую переменную i
+Не использовать однобуквенные названия в счётчиках!

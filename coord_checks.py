@@ -1,13 +1,13 @@
-import names
+import constants
 
 
 def check_if_cell_is_empty(list_game_board: list, player_coord_tuple: tuple) -> bool:
     x = player_coord_tuple[0]
     y = player_coord_tuple[1]
-    return list_game_board[x][y] == names.NAME_EMPTY
+    return list_game_board[x][y] == constants.NAME_EMPTY
 
 
-def check_coord_is_ok(coordinate: int|str) -> bool:
+def check_coord_is_ok(coordinate) -> bool:
     return isinstance(coordinate, int) and coordinate >= 0 and coordinate <= 2
 
 
