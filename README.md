@@ -32,16 +32,16 @@ total_number_of_cells = 9 - общее количество клеток на п
 3. В main.py теперь
  while not (check_is_victory(game_board_list)) вместо  while not (check_is_victory(game_board_list) == True)
 4. Убрала повтор в ветках if
-    #    show_player_coord_tuple(current_coord_tuple, current_role)
-    #    game_board_list = fill_cell_in_game_board(game_board_list, current_coord_tuple, current_role)
+show_player_coord_tuple(current_coord_tuple, current_role)
+game_board_list = fill_cell_in_game_board(game_board_list, current_coord_tuple, current_role)
 
 5. Убрала дубликат обработки ничьей из главного цикла:
-    #    if not current_coord_tuple:
-    #        print(console_messages.ALL_CELLS_OCCUPIED)
-    #        print(console_messages.DRAW)
-    #        result_draw = True
-    #        break
-6. Аннотация типов: как указать список списков???
+if not current_coord_tuple:
+    print(console_messages.ALL_CELLS_OCCUPIED)
+    print(console_messages.DRAW)
+    result_draw = True
+    break
+6. Аннотация типов: есть вопросики
 7. Убрала транслит :)
 8. names.py и console_messages.py объединила в constants.py
 9.     for i in range(1, total_number_of_cells): заменила на     for _ in range(1, total_number_of_cells):
