@@ -2,10 +2,10 @@
 import constants
 from typing import Any
 
-def make_game_board() -> list[list[Any]]:
-    game_board_list = [[constants.NAME_EMPTY]*3 for i in range(3)]
+def make_game_board() -> list[list[str|None]]:
+    game_board_list: list[list[str|None]]
+    game_board_list = [[constants.NAME_EMPTY] * constants.N for i in range(constants.N)]
     return game_board_list
-
 
 def show_game_board(list_game_board: list[list[str|None]]) -> None:
     for row in list_game_board:

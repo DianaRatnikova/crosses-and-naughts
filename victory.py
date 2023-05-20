@@ -16,7 +16,7 @@ def check_horizontal_match(game_board_list: list[list[str|None]]) -> bool:
 
 
 def check_vertical_match(game_board_list: list[list[str|None]]) -> bool:
-    for column_num in range(3):
+    for column_num in range(constants.N):
         column = [row[column_num] for row in game_board_list]
         if column[0]== constants.NAME_EMPTY:
             break
@@ -26,7 +26,7 @@ def check_vertical_match(game_board_list: list[list[str|None]]) -> bool:
 
 
 def check_main_diagonal_match(game_board_list: list[list[str|None]]) -> bool:
-    for i in range(0,2):
+    for i in range(0,constants.N-1):
         if game_board_list[i][i] ==  constants.NAME_EMPTY:
             return False
         if game_board_list[i][i]!= game_board_list[i+1][i+1]:
@@ -35,10 +35,11 @@ def check_main_diagonal_match(game_board_list: list[list[str|None]]) -> bool:
 
 
 def check_side_diagonal_match(game_board_list: list[list[str|None]]) -> bool:
-    for i in range(0,2):
-        if game_board_list[i][2-i] ==  constants.NAME_EMPTY:
+    summ_of_index = constants.N-1
+    for i in range(0,summ_of_index):
+        if game_board_list[i][summ_of_index-i] ==  constants.NAME_EMPTY:
             return False
-        if game_board_list[i][2-i]!= game_board_list[i+1][1-i]:
+        if game_board_list[i][summ_of_index-i]!= game_board_list[i+1][summ_of_index-1-i]:
             return False
     return True
 

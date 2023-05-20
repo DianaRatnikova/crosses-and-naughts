@@ -15,9 +15,6 @@ if __name__ == "__main__":
     game_board_list = make_game_board()
     user_role, program_role = make_random_choice_of_roles()
 
-    program_role = constants.NAME_NAUGHTS
-    user_role = constants.NAME_CROSSES
-
     print(constants.USER_ROLE, user_role)
     print(constants.PROGRAM_ROLE, program_role)
 

@@ -8,7 +8,7 @@ def take_one_coord_from_user(coord_name: str) -> int:
     try:
         coord = int(input("\nenter "+ coord_name + ": "))
     except ValueError:
-        coord = 10
+        coord = constants.N+1
     return coord
 
 def ask_coord_for_user() -> tuple[int, int]:
