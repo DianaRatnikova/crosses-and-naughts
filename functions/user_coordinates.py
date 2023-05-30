@@ -1,14 +1,13 @@
 
-
-import constants
-from coord_checks import check_is_in_normal_range, check_if_cell_is_empty
+from functions.constants import N, CELL_IS_OCCUPIED, OUT_OF_RANGE
+from functions.coord_checks import check_is_in_normal_range, check_if_cell_is_empty
 
 
 def take_one_coord_from_user(coord_name: str) -> int:
     try:
         coord = int(input("\nenter "+ coord_name + ": "))
     except ValueError:
-        coord = constants.N+1
+        coord = N+1
     return coord
 
 def ask_coord_for_user() -> tuple[int, int]:
@@ -24,9 +23,9 @@ def ask_and_make_coord_for_user(game_board_list: list[list[str|None]]) -> tuple[
             if check_if_cell_is_empty(game_board_list, user_coord_tuple):
                 return user_coord_tuple
             else:
-                print(constants.CELL_IS_OCCUPIED)
+                print(CELL_IS_OCCUPIED)
         else:
-            print(constants.OUT_OF_RANGE)
+            print(OUT_OF_RANGE)
 
 
 def show_player_coord_tuple(player_coord_tuple: tuple[int,int], player_role: str) -> None:

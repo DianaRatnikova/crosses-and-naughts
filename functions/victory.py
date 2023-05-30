@@ -1,50 +1,50 @@
-import constants
+from functions.constants import NAME_EMPTY, N
 
 
-def check_if_list_of_equal_elements(list_to_check: list[str|None]) -> bool:
+def check_if_list_of_equal_elements(list_to_check: list[str | None]) -> bool:
     set_from_list = set(list_to_check)
     return len(set_from_list) == 1
 
 
-def check_horizontal_match(game_board_list: list[list[str|None]]) -> bool:
+def check_horizontal_match(game_board_list: list[list[str | None]]) -> bool:
     for row in game_board_list:
-        if row[0] == constants.NAME_EMPTY:
+        if row[0] == NAME_EMPTY:
             break
         if check_if_list_of_equal_elements(row):
             return True
     return False
 
 
-def check_vertical_match(game_board_list: list[list[str|None]]) -> bool:
-    for column_num in range(constants.N):
+def check_vertical_match(game_board_list: list[list[str | None]]) -> bool:
+    for column_num in range(N):
         column = [row[column_num] for row in game_board_list]
-        if column[0]== constants.NAME_EMPTY:
+        if column[0] == NAME_EMPTY:
             break
         if check_if_list_of_equal_elements(column):
             return True
     return False
 
 
-def check_main_diagonal_match(game_board_list: list[list[str|None]]) -> bool:
-    for i in range(0,constants.N-1):
-        if game_board_list[i][i] ==  constants.NAME_EMPTY:
+def check_main_diagonal_match(game_board_list: list[list[str | None]]) -> bool:
+    for i in range(N-1):
+        if game_board_list[i][i] ==  NAME_EMPTY:
             return False
-        if game_board_list[i][i]!= game_board_list[i+1][i+1]:
+        if game_board_list[i][i] != game_board_list[i+1][i+1]:
             return False
     return True
 
 
-def check_side_diagonal_match(game_board_list: list[list[str|None]]) -> bool:
-    summ_of_index = constants.N-1
+def check_side_diagonal_match(game_board_list: list[list[str | None]]) -> bool:
+    summ_of_index = N-1
     for i in range(0,summ_of_index):
-        if game_board_list[i][summ_of_index-i] ==  constants.NAME_EMPTY:
+        if game_board_list[i][summ_of_index-i] ==  NAME_EMPTY:
             return False
-        if game_board_list[i][summ_of_index-i]!= game_board_list[i+1][summ_of_index-1-i]:
+        if game_board_list[i][summ_of_index-i] != game_board_list[i+1][summ_of_index-1-i]:
             return False
     return True
 
 
-def check_is_victory(game_board_list: list[list[str|None]]) -> bool:
+def check_is_victory(game_board_list: list[list[str | None]]) -> bool:
     victory_horizontal = check_horizontal_match(game_board_list)
     victory_vertical = check_vertical_match(game_board_list)
     victory_main_diagonal = check_main_diagonal_match(game_board_list)
