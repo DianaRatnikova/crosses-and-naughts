@@ -13,7 +13,7 @@ import pytest
        [[None, 'Crosses', None], [None, None, None], [None, None, None]]),
       ([[None, None, None]], 
        (0, 2), 'Crosses', 
-       [[None, None, 'Crosses']])
+       [[None, None, 'Crosses']]),
   ]      
 )
 def test__fill_cell_in_game_board__is_valid(
