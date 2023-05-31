@@ -2,7 +2,6 @@ from functions.coord_checks import check_if_cell_is_empty
 import pytest
 
 
-
 @pytest.mark.parametrize(
     "list_game_board, player_coord_tuple, expected_result",
     [

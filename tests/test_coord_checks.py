@@ -1,7 +1,7 @@
 from functions.coord_checks import check_coord_is_ok
 from functions.coord_checks import check_if_cell_is_empty
 from functions.coord_checks import check_is_in_normal_range
-from functions.constants import N
+from functions.constants import WIDTH_OF_BOARD
 import pytest
 
 
@@ -24,10 +24,10 @@ def test__check_if_cell_is_empty__indexerror():
 @pytest.mark.parametrize(
   "coord, expected_result",
   [
-      (N-1, True),
+      (WIDTH_OF_BOARD - 1, True),
       (0, True),
       (-1, False),
-      (N+1, False),
+      (WIDTH_OF_BOARD + 1, False),
       ('werdf', False),
 
   ]      
@@ -40,10 +40,10 @@ def test__check_coord_is_ok__is_valid(coord, expected_result):
   "player_coord_tuple, expected_result",
   [
       ((0, 0), True),
-      ((0, N),   False),
-      ((N, 0),   False),
-      ((0, N-1), True),
-      ((N-1, 0), True),
+      ((0, WIDTH_OF_BOARD),   False),
+      ((WIDTH_OF_BOARD, 0),   False),
+      ((0, WIDTH_OF_BOARD-1), True),
+      ((WIDTH_OF_BOARD-1, 0), True),
       ((0, -1),   False),
       ((-1, 0),   False),
       ((0, '-1'),   False),

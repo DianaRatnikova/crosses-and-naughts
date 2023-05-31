@@ -2,7 +2,6 @@ from functions.game_board import fill_cell_in_game_board
 import pytest
 
 
-
 @pytest.mark.parametrize(
   "game_board_list, player_coord_tuple, player_role, expected_result",
   [
@@ -17,8 +16,9 @@ import pytest
        [[None, None, 'Crosses']])
   ]      
 )
-
-
-
-def test__fill_cell_in_game_board__is_valid(game_board_list, player_coord_tuple, player_role, expected_result):
+def test__fill_cell_in_game_board__is_valid(
+    game_board_list, player_coord_tuple, 
+    player_role, 
+    expected_result
+    ):
     assert fill_cell_in_game_board(game_board_list, player_coord_tuple, player_role) == expected_result

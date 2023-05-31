@@ -8,11 +8,15 @@ def make_random_choice_of_roles() -> tuple[str, str]:
     return user_role, program_role
 
 
-def swich_player_for_next_step(current_player: str) -> str:
+def swich_player_for_next_step(
+        current_player: str
+        ) -> str:
     return USERS_STEP if current_player == PROGRAMS_STEP else PROGRAMS_STEP
 
 
-def swich_roles_for_next_step(current_role: str) -> str:
+def swich_roles_for_next_step(
+        current_role: str
+        ) -> str:
     return NAME_CROSSES if current_role == NAME_NAUGHTS else NAME_NAUGHTS
 
 

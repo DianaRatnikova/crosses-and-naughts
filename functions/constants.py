@@ -16,4 +16,4 @@ VICTORY = "========= ПОБЕДИТЕЛЬ: ========="
 USER_ROLE = "user_role    = "
 PROGRAM_ROLE = "program_role = "
 
-N = 3
+WIDTH_OF_BOARD = 3
