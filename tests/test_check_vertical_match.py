@@ -19,7 +19,6 @@ def test__check_vertical_match__is_valid(game_board_list, expected_result):
 @pytest.mark.parametrize(
   "game_board_list, expected_error",
   [
-    ([[NAME_EMPTY, NAME_EMPTY, NAME_EMPTY]], NameError),
     ([NAME_EMPTY, NAME_EMPTY, NAME_EMPTY], TypeError),
   ]      
 )

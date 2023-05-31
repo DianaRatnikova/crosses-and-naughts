@@ -9,7 +9,7 @@ import pytest
       (WIDTH_OF_BOARD - 1, True),
       (0, True),
       (-1, False),
-      (WIDTH_OF_BOARD + 1, False)
+      (WIDTH_OF_BOARD + 1, False),
       ('werdf', False),
 
   ]      

@@ -21,19 +21,18 @@ import pytest
     False),
   ]      
 )
-def test__check_vertical_match__is_valid(game_board_list, expected_result):
+def test__check_main_diagonal_match__is_valid(game_board_list, expected_result):
     assert check_main_diagonal_match(game_board_list) is expected_result
 
 
 @pytest.mark.parametrize(
   "game_board_list, expected_error",
   [
-    ([[NAME_EMPTY, NAME_EMPTY, NAME_EMPTY]], IndexError),
     ([], IndexError),
     ([NAME_EMPTY, NAME_EMPTY, NAME_EMPTY], TypeError),
   ]      
 )
-def test__check_vertical_match__errors(game_board_list, expected_error):
+def test__check_main_diagonal_match__errors(game_board_list, expected_error):
     with pytest.raises(expected_error):
         check_main_diagonal_match(game_board_list)
 

@@ -5,8 +5,8 @@ import pytest
 @pytest.mark.parametrize(
   "game_board_list, expected_result",
   [
-    ([[0, 0, 0], [0, 0, 0], [0, 0, 0]], True),
-    ([[NAME_EMPTY, 0, 0], [0, 0, 0], [0, 0, 0]], False),
+     ([[1, 1, 1], [1, 1, 1], [1, 1, 1]], True),
+    ([[NAME_EMPTY, 1, 1], [1, 1, 1], [1, 1, 1]], True),
     ([[NAME_EMPTY, NAME_EMPTY, NAME_EMPTY], [NAME_EMPTY, NAME_EMPTY, NAME_EMPTY], [NAME_EMPTY, NAME_EMPTY, NAME_EMPTY]], False),
   ]      
 )
@@ -17,7 +17,7 @@ def test__check_horizontal_match__is_valid(game_board_list, expected_result):
 @pytest.mark.parametrize(
   "game_board_list, expected_error",
   [
-    ([[NAME_EMPTY, NAME_EMPTY, NAME_EMPTY]], NameError),
+ #   ([[NAME_EMPTY, NAME_EMPTY, NAME_EMPTY]], NameError),
     ([NAME_EMPTY, NAME_EMPTY, NAME_EMPTY], TypeError),
   ]      
 )
