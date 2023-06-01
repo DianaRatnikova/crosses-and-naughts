@@ -1,4 +1,3 @@
-
 from functions.victory import check_if_list_of_equal_elements
 import pytest
 

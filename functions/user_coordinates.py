@@ -24,7 +24,6 @@ def ask_and_make_coord_for_user(
         ) -> tuple[int, int]:
     while True:
         user_coord_tuple = ask_coord_for_user()
-      #  if (check_coord_is_int(user_coord_tuple)):
         if check_is_in_normal_range(user_coord_tuple):
             if check_if_cell_is_empty(game_board_list, user_coord_tuple):
                 return user_coord_tuple
