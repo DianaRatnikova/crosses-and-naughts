@@ -1,6 +1,6 @@
 
 from functions.constants import WIDTH_OF_BOARD, CELL_IS_OCCUPIED, OUT_OF_RANGE
-from functions.coord_checks import check_is_in_normal_range, check_if_cell_is_empty, check_coord_is_int
+from functions.coord_checks import check_is_in_normal_range, check_if_cell_is_empty
 
 
 def take_one_coord_from_user(
